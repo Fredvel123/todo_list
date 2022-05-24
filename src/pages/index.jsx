@@ -6,9 +6,6 @@ import BackgroundHome from "./Background";
 import Tasks from "./Tasks";
 
 export default function Home() {
-  const theme = {
-    main: "palevioletred",
-  };
   return (
     <HomePage>
       <Head>
