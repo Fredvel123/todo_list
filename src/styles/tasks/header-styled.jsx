@@ -11,6 +11,16 @@ export const Header_Tasks = styled.div`
     letter-spacing: 10px;
     font-family: "Plus Jakarta Sans", sans-serif;
   }
+  @media screen and (max-width: 1250px) {
+    h2 {
+    font-size: 30px;
+  }
+  @@media screen (max-width: 850px){
+    h2 {
+      font-size: 25px
+    }
+  }
+
 `;
 
 export const Image_icon = styled(Image)`

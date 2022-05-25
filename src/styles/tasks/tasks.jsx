@@ -10,4 +10,14 @@ export const TasksStyled = styled.div`
   // top: 20%;
   position: relative;
   border: white;
+  @media screen and (max-width: 650px) {
+    margin: 0 20%;
+    margin-top: -17%;
+    width: 60%;
+  }
+  @media screen and (max-width: 450px) {
+    width: 80%;
+    margin: 0 10%;
+    margin-top: -40%;
+  }
 `;

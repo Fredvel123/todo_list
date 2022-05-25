@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-export const WallpaperHome = styled(Image)`
-  position: relative;
-  z-index: 10;
+export const WallpaperHome = styled.div`
+  .wallpaper-home {
+    min-height: 550px;
+  }
 `;

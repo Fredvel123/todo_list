@@ -3,18 +3,22 @@ import lightWallpaper from "../../assets/images/bg-desktop-light.jpg";
 import darkWallpaper from "../../assets/images/bg-desktop-dark.jpg";
 import { WallpaperHome } from "../../styles/home/wallpaperHome";
 // redux
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useWindowWidth } from "@react-hook/window-size";
 
 function BackgroundHome() {
   const theme = useSelector((state) => state.theme.value);
-  const dispatch = useDispatch();
+
+  const size = useWindowWidth();
   return (
-    <>
-      <WallpaperHome
+    <WallpaperHome>
+      <Image
+        className="wallpaper-home"
         src={theme ? lightWallpaper : darkWallpaper}
         alt="wallpaper"
+        height={size < 450 ? "650" : null}
       />
-    </>
+    </WallpaperHome>
   );
 }
 
