@@ -1,7 +1,7 @@
 import lightModeIcon from "../../../assets/images/icon-sun.svg";
 import darkModeIcon from "../../../assets/images/icon-moon.svg";
 import Image from "next/image";
-import { Header_Tasks } from "../../../styles/tasks/header-styled";
+import { Header_Tasks, Image_icon } from "../../../styles/tasks/header-styled";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../../../redux/slices/theme";
@@ -16,7 +16,7 @@ export default function Header() {
     <>
       <Header_Tasks>
         <h2>TODO</h2>
-        <Image
+        <Image_icon
           src={theme ? darkModeIcon : lightModeIcon}
           onClick={changeTheme}
           alt="image"
