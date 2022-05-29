@@ -8,6 +8,7 @@ import Tasks from "./Tasks";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setTheme } from "../redux/slices/theme";
+import { setTasks } from "../redux/slices/tasks";
 
 export default function Home() {
   const theme = useSelector((state) => state.theme.value);
@@ -21,9 +22,15 @@ export default function Home() {
       dispatch(setTheme(JSON.parse(data)));
     }
   }, []);
-  // useEffect(() => {
-  //   window.localStorage.setItem("theme", JSON.stringify(theme));
-  // }, [theme]);
+
+  // storage tasks in localStorage
+
+  useEffect(() => {
+    const data = localStorage.getItem("tasks");
+    if (data !== null) {
+      dispatch(setTasks(JSON.parse(data)));
+    }
+  }, []);
 
   return (
     <HomePage mode={theme}>
