@@ -1,6 +1,5 @@
 import lightModeIcon from "../../../assets/images/icon-sun.svg";
 import darkModeIcon from "../../../assets/images/icon-moon.svg";
-import Image from "next/image";
 import { Header_Tasks, Image_icon } from "../../../styles/tasks/header-styled";
 // redux
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +10,9 @@ export default function Header() {
   const dispatch = useDispatch();
   const changeTheme = () => {
     dispatch(setTheme(!theme));
+    localStorage.setItem("theme", JSON.stringify(!theme));
   };
+
   return (
     <>
       <Header_Tasks>

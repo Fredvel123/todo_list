@@ -12,16 +12,17 @@ import { setTheme } from "../redux/slices/theme";
 export default function Home() {
   const theme = useSelector((state) => state.theme.value);
   const dispatch = useDispatch();
-  // store theme in localhost
-  // useEffect(() => {
-  //   const data = localStorage.getItem("theme");
-  //   if (data !== null) {
-  //     dispatch(setTheme(data));
-  //   }
-  // }, []);
 
+  // storage theme in localhost
+
+  useEffect(() => {
+    const data = window.localStorage.getItem("theme");
+    if (data !== null) {
+      dispatch(setTheme(JSON.parse(data)));
+    }
+  }, []);
   // useEffect(() => {
-  //   localStorage.setItem("theme", theme);
+  //   window.localStorage.setItem("theme", JSON.stringify(theme));
   // }, [theme]);
 
   return (
