@@ -25,6 +25,7 @@ export default function InsertTasks() {
     // if tasks is already created, don't create task
     if (!tasks.find((item) => item.task === titleTask)) {
       dispatch(setTasks([...tasks, { task: titleTask, completed: false }]));
+      setTitleTask("");
     }
   };
 
@@ -36,6 +37,7 @@ export default function InsertTasks() {
     <InsertTasksStyles onSubmit={handlerSubmit} mode={theme}>
       <input
         type="text"
+        value={titleTask}
         onChange={handlerChangeTask}
         placeholder="add a task here"
       />
