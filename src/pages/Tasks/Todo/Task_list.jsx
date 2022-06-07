@@ -8,8 +8,9 @@ import {
 import Image from "next/image";
 import checkedIcon from "../../../assets/images/icon-check.svg";
 import crossIcon from "../../../assets/images/icon-cross.svg";
+import { useEffect } from "react";
 
-export default function TasksList() {
+export default function TasksList({ state, setState }) {
   const tasks = useSelector((state) => state.tasks.value);
   const theme = useSelector((state) => state.theme.value);
   const dispatch = useDispatch();
@@ -21,17 +22,29 @@ export default function TasksList() {
         )
       )
     );
+    setState(
+      tasks.map((t) =>
+        t.task === elem.task ? { ...t, completed: !t.completed } : t
+      )
+    );
   };
 
   const removeTask = (elem) => {
     const taskRemoved = tasks.filter((item) => item.task !== elem.task);
     dispatch(setTasks(taskRemoved));
+    setState(taskRemoved);
   };
 
+  useEffect(() => {
+    const updateTasks = async () => {
+      setState(tasks);
+    };
+    updateTasks();
+  }, [tasks]);
   return (
     <>
-      {tasks.length > 0 ? (
-        tasks.map((item, index) => (
+      {state.length > 0 ? (
+        state.map((item, index) => (
           <>
             <TasksListStyles key={index} mode={theme}>
               <div className={item.completed ? "image" : "no-image"}>

@@ -14,4 +14,11 @@ export const FoorterStyles = styled.footer`
   p {
     color: ${({ mode }) => (mode ? "black" : "white")};
   }
+  .click {
+    cursor: pointer;
+    &:hover {
+      transition: ease-in 0.2s;
+      color: gray;
+    }
+  }
 `;
